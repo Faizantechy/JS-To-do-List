@@ -1,0 +1,203 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    font-size: 62.5%; /* Adjusted for easier rem calculations */
+}
+
+body {
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+}
+
+.container {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-list {
+    width: 90%; /* 90% width for responsiveness */
+    max-width: 35rem; /* Maximum width */
+    background-color: white;
+    padding: 2rem; /* Padding in rem for consistency */
+}
+
+h2 img {
+    width: 10%;
+}
+
+h2 {
+    display: flex;
+    gap: 2rem; /* Use rem for spacing */
+    font-size: 2.4rem; /* Font size in rem */
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem; /* Space between elements */
+    background-color: rgb(235, 237, 238);
+    border-radius: 2rem; /* Rounded corners */
+}
+
+.input-box {
+    flex: 1;
+    padding: 1.2rem; /* Responsive padding */
+    border-radius: 2rem; /* Rounded corners */
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: 1.4rem; /* Font size in rem */
+}
+
+.add-btn {
+    width: 10rem; /* Width in rem for consistency */
+    border-radius: 2rem; /* Rounded corners */
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(255, 100, 59);
+    color: white;
+    font-weight: 800;
+    padding: 1rem; /* Responsive padding */
+    font-size: 1.4rem; /* Font size in rem */
+
+    &:hover {
+        background-color: rgb(215, 78, 40);
+    }
+}
+
+.list-container li {
+    font-size: 1.6rem; /* Font size in rem */
+    font-weight: 500;
+    margin-top: 1rem; /* Space between list items */
+    position: relative;
+    list-style: none;
+}
+
+.list-container li::before {
+    content: '';
+    position: absolute;
+    width: 2rem; /* Width in rem */
+    height: 2rem; /* Height in rem */
+    border-radius: 50%; /* Circle */
+    left: -2.5rem; /* Adjusted for responsiveness */
+    top: 0.2rem; /* Vertical alignment */
+    background: url(/unchecked.png);
+    background-size: cover;
+    object-fit: cover;
+    background-repeat: no-repeat;
+}
+
+.list-container {
+    width: 100%;
+    padding: 2rem; /* Padding in rem for consistency */
+}
+
+.list-container li.checked {
+    text-decoration: line-through;
+}
+
+.list-container li.checked::before {
+    background: url('checked.png');
+    background-size: cover;
+    background-repeat: repeat;
+}
+
+.list-container li span {
+    color: red;
+    font-weight: 700;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    font-size: 1.4rem; /* Font size in rem */
+    
+    &:hover {
+        color: rgb(171, 27, 27);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .todo-list {
+        width: 95%; /* Allow more width on smaller screens */
+        padding: 1.5rem; /* Reduced padding for better fit */
+    }
+
+    .row {
+        flex-direction: column; /* Stack the input box and button */
+        align-items: stretch; /* Stretch items to full width */
+        gap: 1rem; /* Space between input and button */
+    }
+
+    .input-box {
+        flex: 0;
+        width: 100%; /* Full width */
+        padding: 1rem; /* Reduced padding for better fit */
+        font-size: 1.4rem; /* Adjust font size */
+        text-align: center;
+    }
+
+    .add-btn {
+        width: 100%; /* Full width for the button */
+        padding: 1rem; /* Consistent padding */
+        font-size: 1.4rem; /* Adjust font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        height: 100vh; /* Full height on small screens */
+    }
+    
+    h2 {
+        font-size: 2rem; /* Reduce heading size */
+    }
+
+    .todo-list {
+        padding: 1rem; /* Further reduced padding */
+        overflow-y: auto; /* Enable scrolling for overflowing content */
+    }
+
+    .input-box {
+        padding: 0.8rem; /* Further reduced padding */
+    }
+
+    .add-btn {
+        padding: 0.8rem; /* Further reduced padding */
+        font-size: 1.2rem; /* Slightly smaller font */
+    }
+}
+
+@media (max-width: 768px) {
+    h2 {
+        top: 0; /* Keep at the top for smaller screens */
+        font-size: 2rem; /* Adjust font size for smaller screens */
+        padding: 1rem; /* Consistent padding */
+    }
+
+    .row {
+        top: 4rem; /* Adjust based on new h2 size */
+        padding: 1rem; /* Consistent padding */
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.8rem; /* Further reduce heading size for very small screens */
+        padding: 0.8rem; /* Reduce padding */
+    }
+
+    .row {
+        top: 3rem; /* Adjust top position for better fit */
+        padding: 0.8rem; /* Reduce padding */
+    }
+}
